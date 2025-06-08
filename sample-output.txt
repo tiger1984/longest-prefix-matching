@@ -1,0 +1,501 @@
+Running all test cases...
+
+
+=========================
+TC1: Route Add Ip Add
+TC1: Initialize Route DB
+TC1: Add Route 10.0.0.0/8 
+Route added successfully: 10.0.0.0/8, Next Hop: 111.8.5.8
+TC1: Add Route 10.1.0.0/16 
+Route added successfully: 10.1.0.0/16, Next Hop: 111.16.5.16
+TC1: Add Route 10.1.1.0/24 
+Route added successfully: 10.1.1.0/24, Next Hop: 111.24.5.24
+TC1: Register IP Address 10.1.5.9
+Successfully registered IP address: 10.1.5.9
+Route IP match Callback IP: 10.1.5.9, Route: 10.1.0.0/16, Next Hop: 111.16.5.16
+TC1: Uninitialize Route DBRouteDb uninitialized successfully
+TC1 ended
+
+
+=========================
+=========================
+TC2: IP Add Route Add
+TC2: Initialize Route DB
+TC2: Register IP Address 10.1.5.9
+Successfully registered IP address: 10.1.5.9
+No matching route found for IP: 10.1.5.9
+Failed to match Ip: 10.1.5.9 to exiting Route
+TC2: Add Route 10.0.0.0/8
+Route added successfully: 10.0.0.0/8, Next Hop: 111.8.5.8
+Route IP match Callback IP: 10.1.5.9, Route: 10.0.0.0/8, Next Hop: 111.8.5.8
+TC2: Add Route 10.1.0.0/16
+Route added successfully: 10.1.0.0/16, Next Hop: 111.16.5.16
+Route IP match Callback IP: 10.1.5.9, Route: 10.1.0.0/16, Next Hop: 111.16.5.16
+TC2: Add Route 10.1.1.0/24
+Route added successfully: 10.1.1.0/24, Next Hop: 111.24.5.24
+TC2: Uninitialize Route DB
+RouteDb uninitialized successfully
+TC2 ended
+
+
+=========================
+=========================
+TC3: Route Delete
+TC3: Initialize Route DB
+TC3: Add Route 10.0.0.0/8
+Route added successfully: 10.0.0.0/8, Next Hop: 111.8.5.8
+TC3: Add Route 10.1.0.0/16
+Route added successfully: 10.1.0.0/16, Next Hop: 111.16.5.16
+TC3: Add Route 10.1.1.0/24
+Route added successfully: 10.1.1.0/24, Next Hop: 111.24.5.24
+TC3: Register IP Address 10.1.5.9
+Successfully registered IP address: 10.1.5.9
+Route IP match Callback IP: 10.1.5.9, Route: 10.1.0.0/16, Next Hop: 111.16.5.16
+TC3: Delete Route 10.1.0.0/16
+Route deleted successfully: 10.1.0.0/16
+Route IP match Callback IP: 10.1.5.9, Route: 10.0.0.0/8, Next Hop: 111.8.5.8
+TC3: Uninitialize Route DB
+RouteDb uninitialized successfully
+TC3 ended
+
+
+=========================
+=========================
+TC4: Route Delete Route Add 
+TC4: Initialize Route DB
+TC4: Add Route 10.0.0.0/8
+Route added successfully: 10.0.0.0/8, Next Hop: 111.8.5.8
+TC4: Add Route 10.1.0.0/16
+Route added successfully: 10.1.0.0/16, Next Hop: 111.16.5.16
+TC4: Add Route 10.1.1.0/24
+Route added successfully: 10.1.1.0/24, Next Hop: 111.24.5.24
+TC4: Register IP Address 10.1.5.9
+Successfully registered IP address: 10.1.5.9
+Route IP match Callback IP: 10.1.5.9, Route: 10.1.0.0/16, Next Hop: 111.16.5.16
+TC4: Delete Route 10.1.0.0/16
+Route deleted successfully: 10.1.0.0/16
+Route IP match Callback IP: 10.1.5.9, Route: 10.0.0.0/8, Next Hop: 111.8.5.8
+TC4: Add Route 10.1.0.0/16
+Route added successfully: 10.1.0.0/16, Next Hop: 111.16.5.16
+Route IP match Callback IP: 10.1.5.9, Route: 10.1.0.0/16, Next Hop: 111.16.5.16
+TC4: Uninitialize Route DB
+RouteDb uninitialized successfully
+TC4 ended
+
+
+=========================
+=========================
+TC5: Route IP Match Callback - Overlapping Routes
+TC5: Initialize Route DB
+TC5: Add Route 10.0.0.0/8
+Route added successfully: 10.0.0.0/8, Next Hop: 111.8.5.8
+TC5: Add Route 10.0.0.0/16
+Route added successfully: 10.0.0.0/16, Next Hop: 111.16.5.16
+TC5: Add Route 10.0.0.0/24
+Route added successfully: 10.0.0.0/24, Next Hop: 111.24.5.24
+TC5: Register IP Address 10.0.0.1
+Successfully registered IP address: 10.0.0.1
+Route IP match Callback IP: 10.0.0.1, Route: 10.0.0.0/24, Next Hop: 111.24.5.24
+TC5: Uninitialize Route DB
+RouteDb uninitialized successfully
+TC5 ended
+
+
+=========================
+=========================
+TC6: Route IP Match Callback - No Matching Route
+TC6: Initialize Route DB
+TC6: Add Route 192.168.0.0/16
+Route added successfully: 192.168.0.0/16, Next Hop: 192.168.1.1
+TC6: Add Route 172.16.0.0/12
+Route added successfully: 172.16.0.0/12, Next Hop: 172.16.1.1
+TC6: Register IP Address 10.0.0.1
+Successfully registered IP address: 10.0.0.1
+No matching route found for IP: 10.0.0.1
+Failed to match Ip: 10.0.0.1 to exiting Route
+TC6: Uninitialize Route DB
+RouteDb uninitialized successfully
+TC6 ended
+
+
+=========================
+=========================
+TC7: Route IP Match Callback - Multiple Deletes
+TC7: Initialize Route DB
+TC7: Add Route 10.0.0.0/8
+Route added successfully: 10.0.0.0/8, Next Hop: 111.8.5.8
+TC7: Add Route 10.1.0.0/16
+Route added successfully: 10.1.0.0/16, Next Hop: 111.16.5.16
+TC7: Add Route 10.1.1.0/24
+Route added successfully: 10.1.1.0/24, Next Hop: 111.24.5.24
+TC7: Delete Route 10.1.1.0/24
+Route deleted successfully: 10.1.1.0/24
+TC7: Delete Route 10.1.0.0/16
+Route deleted successfully: 10.1.0.0/16
+TC7: Register IP Address 10.1.5.9
+Successfully registered IP address: 10.1.5.9
+Route IP match Callback IP: 10.1.5.9, Route: 10.0.0.0/8, Next Hop: 111.8.5.8
+TC7: Uninitialize Route DB
+RouteDb uninitialized successfully
+TC7 ended
+
+
+=========================
+=========================
+TC8: Route IP Match Callback - Repeated Adds
+TC8: Initialize Route DB
+TC8: Add Route 10.0.0.0/8 (First Add)
+Route added successfully: 10.0.0.0/8, Next Hop: 111.8.5.8
+TC8: Add Route 10.0.0.0/8 (Second Add)
+Route already exists: 10.0.0.0/8
+Failed to add route: 10.0.0.0/8
+TC8: Add Route 10.0.0.0/8 (Third Add)
+Route already exists: 10.0.0.0/8
+Failed to add route: 10.0.0.0/8
+TC8: Register IP Address 10.0.0.1
+Successfully registered IP address: 10.0.0.1
+Route IP match Callback IP: 10.0.0.1, Route: 10.0.0.0/8, Next Hop: 111.8.5.8
+TC8: Uninitialize Route DB
+RouteDb uninitialized successfully
+TC8 ended
+
+
+=========================
+=========================
+TC9: Route Add and Immediate Delete
+TC9: Initialize Route DB
+TC9: Add Route 10.0.0.0/8
+Route added successfully: 10.0.0.0/8, Next Hop: 111.8.5.8
+TC9: Delete Route 10.0.0.0/8
+Route deleted successfully: 10.0.0.0/8
+TC9: Register IP Address 10.0.0.1
+Successfully registered IP address: 10.0.0.1
+No matching route found for IP: 10.0.0.1
+Failed to match Ip: 10.0.0.1 to exiting Route
+TC9: Uninitialize Route DB
+RouteDb uninitialized successfully
+TC9 ended
+
+
+=========================
+=========================
+TC10: Register IP Without Routes
+TC10: Initialize Route DB
+TC10: Register IP Address 192.168.1.1
+Successfully registered IP address: 192.168.1.1
+No matching route found for IP: 192.168.1.1
+Failed to match Ip: 192.168.1.1 to exiting Route
+TC10: Uninitialize Route DB
+RouteDb uninitialized successfully
+TC10 ended
+
+
+=========================
+=========================
+TC11: Add Routes with Different Prefix Lengths
+TC11: Initialize Route DB
+TC11: Add Route 10.0.0.0/8
+Route added successfully: 10.0.0.0/8, Next Hop: 111.8.5.8
+TC11: Add Route 10.0.0.0/12
+Route added successfully: 10.0.0.0/12, Next Hop: 111.12.5.12
+TC11: Add Route 10.0.0.0/24
+Route added successfully: 10.0.0.0/24, Next Hop: 111.24.5.24
+TC11: Register IP Address 10.0.0.1
+Successfully registered IP address: 10.0.0.1
+Route IP match Callback IP: 10.0.0.1, Route: 10.0.0.0/24, Next Hop: 111.24.5.24
+TC11: Uninitialize Route DB
+RouteDb uninitialized successfully
+TC11 ended
+
+
+=========================
+=========================
+TC12: Add and Delete Multiple Routes
+TC12: Initialize Route DB
+TC12: Add Route 10.0.0.0/8
+Route added successfully: 10.0.0.0/8, Next Hop: 111.8.5.8
+TC12: Add Route 10.1.0.0/16
+Route added successfully: 10.1.0.0/16, Next Hop: 111.16.5.16
+TC12: Delete Route 10.0.0.0/8
+Route deleted successfully: 10.0.0.0/8
+TC12: Delete Route 10.1.0.0/16
+Route deleted successfully: 10.1.0.0/16
+TC12: Register IP Address 10.1.5.9
+Successfully registered IP address: 10.1.5.9
+No matching route found for IP: 10.1.5.9
+Failed to match Ip: 10.1.5.9 to exiting Route
+TC12: Uninitialize Route DB
+RouteDb uninitialized successfully
+TC12 ended
+
+
+=========================
+=========================
+TC13: Add Routes and Delete Routes with Different Prefix Lengths
+TC13: Initialize Route DB
+TC13: Add Route 10.0.0.0/8
+Route added successfully: 10.0.0.0/8, Next Hop: 111.8.5.8
+TC13: Add Route 10.0.0.0/12
+Route added successfully: 10.0.0.0/12, Next Hop: 111.12.5.12
+TC13: Add Route 10.0.0.0/24
+Route added successfully: 10.0.0.0/24, Next Hop: 111.24.5.24
+TC13: Register IP Address 10.0.0.1
+Successfully registered IP address: 10.0.0.1
+Route IP match Callback IP: 10.0.0.1, Route: 10.0.0.0/24, Next Hop: 111.24.5.24
+TC13: Delete Route 10.0.0.0/12
+Route deleted successfully: 10.0.0.0/12
+TC13: Delete Route 10.0.0.0/24
+Route deleted successfully: 10.0.0.0/24
+Route IP match Callback IP: 10.0.0.1, Route: 10.0.0.0/8, Next Hop: 111.8.5.8
+TC13: Uninitialize Route DB
+RouteDb uninitialized successfully
+TC13 ended
+
+
+=========================
+=========================
+TC14: Unregister IP Address
+TC14: Initialize Route DB
+TC14: Add Route 10.0.0.0/8
+Route added successfully: 10.0.0.0/8, Next Hop: 111.8.5.8
+TC14: Register IP Address 10.0.0.1
+Successfully registered IP address: 10.0.0.1
+Route IP match Callback IP: 10.0.0.1, Route: 10.0.0.0/8, Next Hop: 111.8.5.8
+TC14: Unregister IP Address 10.0.0.1
+Successfully unregistered IP address: 10.0.0.1
+TC14: Uninitialize Route DB
+RouteDb uninitialized successfully
+TC14 ended
+
+
+=========================
+=========================
+TC15: Unregister Non-Existent IP Address
+TC15: Initialize Route DB
+TC15: Add Route 10.0.0.0/8
+Route added successfully: 10.0.0.0/8, Next Hop: 111.8.5.8
+TC15: Unregister IP Address 10.0.0.1 (Not Registered)
+IP address not found in trie
+Failed to unregister IP address: 10.0.0.1
+TC15: Uninitialize Route DB
+RouteDb uninitialized successfully
+TC15 ended
+
+
+=========================
+=========================
+TC16: Register and Unregister Multiple IP Addresses
+TC16: Initialize Route DB
+TC16: Add Route 10.0.0.0/8
+Route added successfully: 10.0.0.0/8, Next Hop: 111.8.5.8
+TC16: Register IP Address 10.0.0.1
+Successfully registered IP address: 10.0.0.1
+Route IP match Callback IP: 10.0.0.1, Route: 10.0.0.0/8, Next Hop: 111.8.5.8
+TC16: Register IP Address 10.0.0.2
+Successfully registered IP address: 10.0.0.2
+Route IP match Callback IP: 10.0.0.2, Route: 10.0.0.0/8, Next Hop: 111.8.5.8
+TC16: Unregister IP Address 10.0.0.1
+Successfully unregistered IP address: 10.0.0.1
+TC16: Unregister IP Address 10.0.0.2
+Successfully unregistered IP address: 10.0.0.2
+TC16: Uninitialize Route DB
+RouteDb uninitialized successfully
+TC16 ended
+
+
+=========================
+=========================
+TC17: Print Route Table
+TC17: Initialize Route DB
+TC17: Add Route 10.0.0.0/8
+Route added successfully: 10.0.0.0/8, Next Hop: 111.8.5.8
+TC17: Add Route 10.1.0.0/16
+Route added successfully: 10.1.0.0/16, Next Hop: 111.16.5.16
+TC17: Add Route 10.1.1.0/24
+Route added successfully: 10.1.1.0/24, Next Hop: 111.24.5.24
+
+
+
+TC17: Print Route Table
+Route: 10.0.0.0/8, Next Hop: 111.8.5.8
+Route: 10.1.0.0/16, Next Hop: 111.16.5.16
+Route: 10.1.1.0/24, Next Hop: 111.24.5.24
+TC17: Uninitialize Route DB
+RouteDb uninitialized successfully
+TC17 ended
+
+
+=========================
+=========================
+TC18: Add Many IPs That Are Matching
+TC18: Initialize Route DB
+TC18: Add Route 10.0.0.0/8
+Route added successfully: 10.0.0.0/8, Next Hop: 111.8.5.8
+TC18: Add Route 10.1.0.0/16
+Route added successfully: 10.1.0.0/16, Next Hop: 111.16.5.16
+TC18: Add Route 10.1.1.0/24
+Route added successfully: 10.1.1.0/24, Next Hop: 111.24.5.24
+TC18: Register Multiple IP Addresses
+TC18: Register IP Address 10.0.0.1
+Successfully registered IP address: 10.0.0.1
+Route IP match Callback IP: 10.0.0.1, Route: 10.0.0.0/8, Next Hop: 111.8.5.8
+TC18: Register IP Address 10.1.0.1
+Successfully registered IP address: 10.1.0.1
+Route IP match Callback IP: 10.1.0.1, Route: 10.1.0.0/16, Next Hop: 111.16.5.16
+TC18: Register IP Address 10.1.1.1
+Successfully registered IP address: 10.1.1.1
+Route IP match Callback IP: 10.1.1.1, Route: 10.1.1.0/24, Next Hop: 111.24.5.24
+TC18: Register IP Address 10.1.1.2
+Successfully registered IP address: 10.1.1.2
+Route IP match Callback IP: 10.1.1.2, Route: 10.1.1.0/24, Next Hop: 111.24.5.24
+TC18: Register IP Address 10.1.1.3
+Successfully registered IP address: 10.1.1.3
+Route IP match Callback IP: 10.1.1.3, Route: 10.1.1.0/24, Next Hop: 111.24.5.24
+TC18: Uninitialize Route DB
+RouteDb uninitialized successfully
+TC18 ended
+
+
+=========================
+=========================
+TC19: Add Many IPs That Are Matching and Verify
+TC19: Initialize Route DB
+TC19: Add Route 10.0.0.0/8
+Route added successfully: 10.0.0.0/8, Next Hop: 111.8.5.8
+TC19: Add Route 10.1.0.0/16
+Route added successfully: 10.1.0.0/16, Next Hop: 111.16.5.16
+TC19: Add Route 10.1.1.0/24
+Route added successfully: 10.1.1.0/24, Next Hop: 111.24.5.24
+TC19: Register Multiple IP Addresses
+TC19: Register IP Address 10.0.0.1
+Successfully registered IP address: 10.0.0.1
+Route IP match Callback IP: 10.0.0.1, Route: 10.0.0.0/8, Next Hop: 111.8.5.8
+TC19: Register IP Address 10.1.0.1
+Successfully registered IP address: 10.1.0.1
+Route IP match Callback IP: 10.1.0.1, Route: 10.1.0.0/16, Next Hop: 111.16.5.16
+TC19: Register IP Address 10.1.1.1
+Successfully registered IP address: 10.1.1.1
+Route IP match Callback IP: 10.1.1.1, Route: 10.1.1.0/24, Next Hop: 111.24.5.24
+TC19: Register IP Address 10.1.1.2
+Successfully registered IP address: 10.1.1.2
+Route IP match Callback IP: 10.1.1.2, Route: 10.1.1.0/24, Next Hop: 111.24.5.24
+TC19: Register IP Address 10.1.1.3
+Successfully registered IP address: 10.1.1.3
+Route IP match Callback IP: 10.1.1.3, Route: 10.1.1.0/24, Next Hop: 111.24.5.24
+
+
+TC19: Print Route Table for 10.0.0.0/8
+Route: 10.0.0.0/8
+IP: 10.0.0.1, Route: 10.0.0.0/8, Next Hop: 111.8.5.8
+
+
+TC19: Print Route Table for 10.1.0.0/16
+Route: 10.1.0.0/16
+IP: 10.1.0.1, Route: 10.1.0.0/16, Next Hop: 111.16.5.16
+
+
+TC19: Print Route Table for 10.1.1.0/24
+Route: 10.1.1.0/24
+IP: 10.1.1.1, Route: 10.1.1.0/24, Next Hop: 111.24.5.24
+IP: 10.1.1.2, Route: 10.1.1.0/24, Next Hop: 111.24.5.24
+IP: 10.1.1.3, Route: 10.1.1.0/24, Next Hop: 111.24.5.24
+
+
+TC19: Uninitialize Route DB
+RouteDb uninitialized successfully
+TC19 ended
+
+
+=========================
+=========================
+TC20: Add Many IPs That Are Matching and Verify
+TC20: Initialize Route DB
+TC20: Add Route 10.0.0.0/8
+Route added successfully: 10.0.0.0/8, Next Hop: 111.8.5.8
+TC20: Add Route 10.1.0.0/16
+Route added successfully: 10.1.0.0/16, Next Hop: 111.16.5.16
+TC20: Add Route 10.1.1.0/24
+Route added successfully: 10.1.1.0/24, Next Hop: 111.24.5.24
+TC20: Register Multiple IP Addresses
+TC20: Register IP Address 10.0.0.1
+Successfully registered IP address: 10.0.0.1
+Route IP match Callback IP: 10.0.0.1, Route: 10.0.0.0/8, Next Hop: 111.8.5.8
+TC20: Register IP Address 10.1.0.1
+Successfully registered IP address: 10.1.0.1
+Route IP match Callback IP: 10.1.0.1, Route: 10.1.0.0/16, Next Hop: 111.16.5.16
+TC20: Register IP Address 10.1.1.1
+Successfully registered IP address: 10.1.1.1
+Route IP match Callback IP: 10.1.1.1, Route: 10.1.1.0/24, Next Hop: 111.24.5.24
+TC20: Register IP Address 10.1.1.2
+Successfully registered IP address: 10.1.1.2
+Route IP match Callback IP: 10.1.1.2, Route: 10.1.1.0/24, Next Hop: 111.24.5.24
+TC20: Register IP Address 10.1.1.3
+Successfully registered IP address: 10.1.1.3
+Route IP match Callback IP: 10.1.1.3, Route: 10.1.1.0/24, Next Hop: 111.24.5.24
+
+
+TC20: Print All Routes 
+Route: 10.0.0.0/8, Next Hop: 111.8.5.8
+Route: 10.1.0.0/16, Next Hop: 111.16.5.16
+Route: 10.1.1.0/24, Next Hop: 111.24.5.24
+
+
+TC20: Uninitialize Route DB
+RouteDb uninitialized successfully
+TC20 ended
+
+
+=========================
+=========================
+TC21: Add Many IPs That Are Matching and Verify Routes
+TC21: Initialize Route DB
+TC21: Add Route 10.0.0.0/8
+Route added successfully: 10.0.0.0/8, Next Hop: 111.8.5.8
+TC21: Add Route 10.1.0.0/16
+Route added successfully: 10.1.0.0/16, Next Hop: 111.16.5.16
+TC21: Add Route 10.1.1.0/24
+Route added successfully: 10.1.1.0/24, Next Hop: 111.24.5.24
+TC21: Register Multiple IP Addresses
+TC21: Register IP Address 10.0.0.1
+Successfully registered IP address: 10.0.0.1
+Route IP match Callback IP: 10.0.0.1, Route: 10.0.0.0/8, Next Hop: 111.8.5.8
+TC21: Register IP Address 10.1.0.1
+Successfully registered IP address: 10.1.0.1
+Route IP match Callback IP: 10.1.0.1, Route: 10.1.0.0/16, Next Hop: 111.16.5.16
+TC21: Register IP Address 10.1.1.1
+Successfully registered IP address: 10.1.1.1
+Route IP match Callback IP: 10.1.1.1, Route: 10.1.1.0/24, Next Hop: 111.24.5.24
+TC21: Register IP Address 10.1.1.2
+Successfully registered IP address: 10.1.1.2
+Route IP match Callback IP: 10.1.1.2, Route: 10.1.1.0/24, Next Hop: 111.24.5.24
+TC21: Register IP Address 10.1.1.3
+Successfully registered IP address: 10.1.1.3
+Route IP match Callback IP: 10.1.1.3, Route: 10.1.1.0/24, Next Hop: 111.24.5.24
+TC21: Register IP Address 11.1.1.3
+Successfully registered IP address: 11.1.1.3
+No matching route found for IP: 11.1.1.3
+Failed to match Ip: 11.1.1.3 to exiting Route
+
+
+TC21: Print Route for 10.0.0.1
+IP: 10.0.0.1, Route: 10.0.0.0/8, Next Hop: 111.8.5.8
+TC21: Print Route for 10.1.0.1
+IP: 10.1.0.1, Route: 10.1.0.0/16, Next Hop: 111.16.5.16
+TC21: Print Route for 10.1.1.1
+IP: 10.1.1.1, Route: 10.1.1.0/24, Next Hop: 111.24.5.24
+TC21: Print Route for 10.1.1.2
+IP: 10.1.1.2, Route: 10.1.1.0/24, Next Hop: 111.24.5.24
+TC21: Print Route for 10.1.1.3
+IP: 10.1.1.3, Route: 10.1.1.0/24, Next Hop: 111.24.5.24
+TC21: Print Route for 11.1.1.3
+No matching route found for IP: 11.1.1.3
+Failed to match Ip: 11.1.1.3 to exiting Route
+
+
+TC21: Uninitialize Route DB
+RouteDb uninitialized successfully
+TC21 ended
+
+
+=========================
+All test cases completed.
